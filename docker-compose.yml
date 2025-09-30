@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  blog:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: halo-blog-theme
+    ports:
+      - "3000:3000"
+    environment:
+      # Halo API Configuration
+      - NEXT_PUBLIC_HALO_API_URL=${NEXT_PUBLIC_HALO_API_URL}
+      - HALO_API_TOKEN=${HALO_API_TOKEN}
+
+      # Site Configuration
+      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+      - NEXT_PUBLIC_SITE_NAME=${NEXT_PUBLIC_SITE_NAME:-Halo Blog}
+
+      # Feature Flags
+      - NEXT_PUBLIC_ENABLE_SEARCH=${NEXT_PUBLIC_ENABLE_SEARCH:-true}
+      - NEXT_PUBLIC_ENABLE_COMMENTS=${NEXT_PUBLIC_ENABLE_COMMENTS:-true}
+
+      # Node Environment
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - blog-network
+
+networks:
+  blog-network:
+    driver: bridge

@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["ts", "tsx"],
+  output: "standalone", // Enable Docker standalone output
   images: {
     remotePatterns: [
       {
