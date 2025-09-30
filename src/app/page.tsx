@@ -4,7 +4,7 @@ import { siteConfig } from "@/resources/config";
 export default function HomePage() {
   return (
     <Column fillWidth gap="l" paddingY="xl" center>
-      <Column gap="m" center textAlign="center">
+      <Column gap="m" center>
         <Heading as="h1" variant="display-strong-xl">
           {siteConfig.name}
         </Heading>
