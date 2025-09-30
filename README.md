@@ -70,22 +70,24 @@ Halo Blog Theme 是一个前后端分离的博客主题项目，使用 Next.js 1
 ### 环境要求
 
 - Node.js 20+
-- npm/pnpm/yarn
+- pnpm
 - Halo CMS 实例（2.0+）
 
 ### 安装依赖
 
 ```bash
-npm install
-# 或
 pnpm install
-# 或
-yarn install
 ```
 
 ### 环境配置
 
-创建 `.env.local` 文件：
+复制 `.env.example` 到 `.env.local` 并配置：
+
+```bash
+cp .env.example .env.local
+```
+
+编辑 `.env.local`：
 
 ```bash
 # Halo API 配置
@@ -93,8 +95,8 @@ NEXT_PUBLIC_HALO_API_URL=https://your-halo-instance.com
 HALO_API_TOKEN=pat_xxxxxxxxxxxxx
 
 # 站点配置
-NEXT_PUBLIC_SITE_URL=https://your-blog.com
-NEXT_PUBLIC_SITE_NAME=My Blog
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_SITE_NAME=Halo Blog
 ```
 
 ### 获取 Halo API Token
@@ -107,7 +109,7 @@ NEXT_PUBLIC_SITE_NAME=My Blog
 ### 开发
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 访问 http://localhost:3000
@@ -115,174 +117,34 @@ npm run dev
 ### 构建
 
 ```bash
-npm run build
-npm run start
+pnpm build
+pnpm start
 ```
 
-## 路由架构
+## 项目状态
 
-### 混合路由模式
+✅ 基础架构已搭建完成
 
-项目采用**固定路由 + 动态路由**的混合模式：
+- [x] Next.js 15 项目初始化
+- [x] TypeScript 配置
+- [x] Once UI 组件库集成
+- [x] 基础组件（Header、Footer、Providers）
+- [x] Halo API 客户端结构
+- [x] 基础页面（首页、关于页）
+- [x] 主题系统
 
-**固定路由**（核心页面）：
-- `/` - 首页
-- `/about` - 关于页面
-- `/contact` - 联系页面
-- `/archives` - 归档页面
-- `/categories` - 分类列表
-- `/tags` - 标签列表
+🚧 待开发功能
 
-**动态路由**（自动生成）：
-- `/[slug]` - 文章详情
-- `/pages/[...slug]` - 其他独立页面
-- `/categories/[slug]` - 分类详情
-- `/tags/[slug]` - 标签详情
-- `/archives/[year]/[month]` - 按月归档
-
-### 路由优先级
-
-Next.js 自动处理路由优先级：固定路由 > 动态路由
-
-## 配置管理
-
-### 站点配置
-
-编辑 `src/resources/config.ts`：
-
-```typescript
-export const siteConfig = {
-  name: "博客名称",
-  title: "博客标题",
-  description: "博客描述",
-  author: { name: "作者名称", ... },
-  social: [...],
-  features: { search: true, comments: true, ... },
-};
-
-export const FIXED_ROUTES = {
-  about: '/about',
-  contact: '/contact',
-};
-```
-
-### Once UI 配置
-
-编辑 `src/resources/once-ui.config.ts`：
-
-```typescript
-export const onceUIConfig = {
-  style: {
-    theme: "system",
-    brand: "blue",
-    accent: "violet",
-  },
-  effects: {
-    gradient: { display: true },
-    dots: { display: true },
-  },
-};
-```
+- [ ] 文章列表和详情页
+- [ ] 分类和标签系统
+- [ ] 独立页面（混合路由）
+- [ ] 归档页面
+- [ ] SEO 优化
+- [ ] 搜索功能（可选）
 
 ## 开发指南
 
-### 添加新的固定路由
-
-1. 更新配置：
-```typescript
-// src/resources/config.ts
-export const FIXED_ROUTES = {
-  about: '/about',
-  contact: '/contact',
-  services: '/services', // 新增
-};
-```
-
-2. 创建页面文件：
-```typescript
-// src/app/services/page.tsx
-export default async function ServicesPage() {
-  const page = await getPageBySlug("services");
-  return <PageContent page={page} />;
-}
-```
-
-### API 调用示例
-
-```typescript
-import { getPosts, getPostBySlug } from "@/lib/halo/posts";
-
-// 获取文章列表
-const { items, total } = await getPosts({ page: 1, size: 10 });
-
-// 获取单篇文章
-const post = await getPostBySlug("hello-world");
-```
-
-## 部署
-
-### Vercel（推荐）
-
-1. Fork 本项目
-2. 在 Vercel 导入项目
-3. 配置环境变量
-4. 自动部署
-
-### Docker
-
-```bash
-docker build -t halo-blog-theme .
-docker run -p 3000:3000 halo-blog-theme
-```
-
-### 自托管
-
-```bash
-npm run build
-npm run start
-```
-
-## 开发文档
-
-- 📘 [技术架构文档](./ai-context.md) - 详细的技术架构说明
-- 📗 [编程规范文档](./ai-guideline.md) - 代码规范和最佳实践
-- 📕 [项目需求文档](./ai-needs.md) - 完整的需求说明
-
-## 参考项目
-
-- [Magic Portfolio](./reference/magic/) - UI 设计参考
-- [Halo CMS](https://halo.run/) - 内容管理系统
-
-## 开发计划
-
-- [x] 项目架构设计
-- [x] 文档编写
-- [ ] 项目初始化
-- [ ] Halo API 集成
-- [ ] 核心功能开发
-- [ ] SEO 优化
-- [ ] 性能优化
-- [ ] 测试和发布
-
-## 贡献指南
-
-欢迎贡献代码！请遵循以下步骤：
-
-1. Fork 本项目
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'feat: Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 创建 Pull Request
-
-## 许可证
-
-MIT License
-
-## 联系方式
-
-如有问题或建议，请提交 Issue。
-
----
-
-**项目状态**: 🚧 开发准备中
-**版本**: 0.1.0
+详见：
+- [技术架构文档](./ai-context.md)
+- [编程规范文档](./ai-guideline.md)
+- [项目需求文档](./ai-needs.md)
