@@ -1,6 +1,5 @@
 import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "@/resources";
-import styles from "./Footer.module.scss";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,7 +7,6 @@ export const Footer = () => {
   return (
     <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
       <Row
-        className={styles.mobile}
         maxWidth="m"
         paddingY="8"
         paddingX="16"

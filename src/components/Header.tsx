@@ -7,7 +7,6 @@ import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
 import { routes, display, person, about, blog, work, gallery } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
-import styles from "./Header.module.scss";
 
 type TimeDisplayProps = {
   timeZone: string;
@@ -60,7 +59,6 @@ export const Header = () => {
       />
       <Row
         fitHeight
-        className={styles.position}
         position="sticky"
         as="header"
         zIndex={9}

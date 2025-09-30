@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="018e6f48-b5ee-402f-96bf-7d409c77df23" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/reference/magic/ai-context.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reference/magic/ai-guideline.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="018e6f48-b5ee-402f-96bf-7d409c77df23" name="更改" comment="feat: initialize project structure and add core components">
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/once-ui.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/once-ui.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +59,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
     "npm.zip.executor": "Run",
     "vue.rearranger.settings.migration": "true"
   }
@@ -69,7 +72,17 @@
       <recent name="D:\Code\Study\blog-theme-for-ghost\magic" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="zip" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -82,6 +95,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.zip" />
       </list>
     </recent_temporary>
@@ -101,11 +115,44 @@
       <option name="presentableId" value="Default" />
       <updated>1759136474226</updated>
       <workItem from="1759136475669" duration="3230000" />
-      <workItem from="1759210365981" duration="2485000" />
+      <workItem from="1759210365981" duration="5234000" />
     </task>
+    <task id="LOCAL-00001" summary="docs: update README and add project documentation for AI Context and AI Needs">
+      <option name="closed" value="true" />
+      <created>1759212892888</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1759212892888</updated>
+    </task>
+    <task id="LOCAL-00002" summary="docs: update README">
+      <option name="closed" value="true" />
+      <created>1759213072170</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1759213072170</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: initialize project structure and add core components">
+      <option name="closed" value="true" />
+      <created>1759214040852</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1759214040852</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="docs: update README and add project documentation for AI Context and AI Needs" />
+    <MESSAGE value="docs: update README" />
+    <MESSAGE value="feat: initialize project structure and add core components" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: initialize project structure and add core components" />
   </component>
 </project>
