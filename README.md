@@ -1,1 +1,1 @@
-# blog-theme-for-ghost
+# blog-theme-for-halo
