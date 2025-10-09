@@ -101,7 +101,7 @@ export default async function BlogPost({
           </Column>
           <Row marginBottom="32" horizontal="center">
             <Row gap="16" vertical="center">
-              <Avatar size="s" src={person.avatar} />
+              <Avatar size="s" src={post.owner?.avatar || person.avatar} />
               <Text variant="label-default-m" onBackground="brand-weak">
                 {post.owner?.displayName || person.name}
               </Text>

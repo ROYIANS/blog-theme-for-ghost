@@ -54,3 +54,6 @@ coreAxiosInstance.interceptors.response.use(
 // Export API clients
 export const publicApiClient = createPublicApiClient(publicAxiosInstance);
 export const coreApiClient = createCoreApiClient(coreAxiosInstance);
+
+// Export axios instances for direct API calls
+export { publicAxiosInstance, coreAxiosInstance };

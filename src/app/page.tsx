@@ -9,10 +9,13 @@ import {
   Avatar,
   Line,
 } from "@once-ui-system/core";
-import { home, about, person, routes } from "@/resources";
+import { home, about, routes } from "@/resources";
 import { Posts } from "@/components/blog/Posts";
+import { getSiteOwner } from "@/lib/halo/users";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const owner = await getSiteOwner();
+
   return (
     <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
       <Column fillWidth horizontal="center" gap="m">
@@ -59,11 +62,11 @@ export default function HomePage() {
               arrowIcon
             >
               <Row gap="8" vertical="center" paddingRight="4">
-                {about.avatar.display && (
+                {about.avatar.display && owner?.avatar && (
                   <Avatar
                     marginRight="8"
                     style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
+                    src={owner.avatar}
                     size="m"
                   />
                 )}

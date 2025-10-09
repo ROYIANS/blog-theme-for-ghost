@@ -1,11 +1,11 @@
 import { Text, Row, Line } from "@once-ui-system/core";
 
 export const person = {
-  firstName: "Blog",
-  lastName: "Author",
-  name: "Blog Author",
+  firstName: "ROYIANS",
+  lastName: "",
+  name: "ROYIANS",
   role: "Developer",
-  avatar: "/images/avatar.jpg",
+  avatar: "/images/avatar.jpg", // 默认头像，实际会从 Halo 获取
   email: "royians@vidorra.life",
   location: "Asia/Shanghai",
   languages: ["中文", "English"],
@@ -34,7 +34,7 @@ export const home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Blog`,
+  title: `ROYIANS's Blog`,
   description: `A modern blog powered by Halo CMS and Next.js`,
   headline: <>Welcome to my blog</>,
   featured: {
@@ -56,8 +56,8 @@ export const home = {
 export const about = {
   path: "/about",
   label: "About",
-  title: `About – ${person.name}`,
-  description: `Learn more about ${person.name}`,
+  title: `About – ROYIANS`,
+  description: `Learn more about ROYIANS`,
   tableOfContent: {
     display: false,
     subItems: false,
