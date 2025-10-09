@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="018e6f48-b5ee-402f-96bf-7d409c77df23" name="更改" comment="fix: 修复首页骨架">
-      <change afterPath="$PROJECT_DIR$/public/images/avatar.jpg" afterDir="false" />
+    <list default="true" id="018e6f48-b5ee-402f-96bf-7d409c77df23" name="更改" comment="fix: 博客">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/halo/pages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/halo/pages.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +124,7 @@
       <workItem from="1759136475669" duration="3230000" />
       <workItem from="1759210365981" duration="15150000" />
       <workItem from="1759971607624" duration="437000" />
-      <workItem from="1759973370602" duration="3447000" />
+      <workItem from="1759973370602" duration="6956000" />
     </task>
     <task id="LOCAL-00001" summary="docs: update README and add project documentation for AI Context and AI Needs">
       <option name="closed" value="true" />
@@ -186,7 +190,31 @@
       <option name="project" value="LOCAL" />
       <updated>1759975041737</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix: 博客">
+      <option name="closed" value="true" />
+      <created>1759976864617</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1759976864617</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: 博客">
+      <option name="closed" value="true" />
+      <created>1759977419343</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1759977419343</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: 博客">
+      <option name="closed" value="true" />
+      <created>1759978079730</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1759978079730</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +231,7 @@
     <MESSAGE value="feat: add Docker support and deployment documentation; enhance configuration files" />
     <MESSAGE value="fix: 修复pnpm build" />
     <MESSAGE value="fix: 修复首页骨架" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 修复首页骨架" />
+    <MESSAGE value="fix: 博客" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 博客" />
   </component>
 </project>

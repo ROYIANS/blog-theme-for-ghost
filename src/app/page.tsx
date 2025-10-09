@@ -97,3 +97,6 @@ export default function HomePage() {
     </Column>
   );
 }
+
+// ISR: Revalidate every 30 seconds
+export const revalidate = 30;

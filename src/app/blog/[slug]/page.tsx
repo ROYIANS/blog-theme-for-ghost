@@ -165,3 +165,6 @@ export default async function BlogPost({
     </Row>
   );
 }
+
+// ISR: Revalidate every 60 seconds
+export const revalidate = 60;
