@@ -1,4 +1,4 @@
-import { coreApiClient } from "./client";
+import { coreApiClient, publicApiClient } from "./client";
 import type { SinglePage } from "@halo-dev/api-client";
 
 /**
@@ -7,14 +7,18 @@ import type { SinglePage } from "@halo-dev/api-client";
  */
 export async function getAllPages(): Promise<SinglePage[]> {
   try {
+    // Try without fieldSelector first - filter in memory instead
     const response = await coreApiClient.content.singlePage.listSinglePage({
       page: 0,
       size: 100,
-      fieldSelector: ["spec.publish==true", "spec.visible==PUBLIC"],
       sort: ["metadata.creationTimestamp,desc"],
     });
 
-    return response.data.items || [];
+    // Filter published and public pages in code
+    const items = response.data.items || [];
+    return items.filter(
+      (page) => page.spec?.publish === true && page.spec?.visible === "PUBLIC"
+    );
   } catch (error) {
     console.error("Failed to fetch pages:", error);
     return [];
@@ -51,21 +55,58 @@ export async function getPageBySlug(slug: string): Promise<SinglePage | null> {
 
 /**
  * Get page content by name
- * Note: Content is available in the SinglePage object itself
+ * Uses the same approach as posts - get the page and extract content from it
  */
 export async function getPageContent(name: string): Promise<string> {
   try {
-    const page = await getPageByName(name);
-    if (!page || !page.spec.releaseSnapshot) {
-      return "";
-    }
-    // The content is stored in the release snapshot
-    // You may need to fetch it separately through content API
-    // For now, return empty string as placeholder
-    console.warn(`Content API for SinglePage needs to be implemented for: ${name}`);
-    return "";
+    const response = await coreApiClient.content.singlePage.getSinglePage({
+      name,
+    });
+    const page = response.data as SinglePage;
+    return page.spec.excerpt.raw || '';
   } catch (error) {
     console.error(`Failed to fetch content for page: ${name}`, error);
     throw new Error("Failed to fetch page content");
   }
+}
+
+/**
+ * Get menu-enabled pages for navigation
+ * Filters pages that have menuIcon in metadata
+ */
+export async function getMenuPages(): Promise<SinglePage[]> {
+  try {
+    const pages = await getAllPages();
+    // Filter pages that have menuIcon in metadata and are published
+    return pages.filter(
+      (page) =>
+        page.spec?.publish &&
+        page.spec?.visible === "PUBLIC" &&
+        page.metadata?.annotations?.["menu.icon"]
+    );
+  } catch (error) {
+    console.error("Failed to fetch menu pages:", error);
+    return [];
+  }
+}
+
+/**
+ * Extract page metadata from annotations
+ */
+export interface PageMetadata {
+  menuIcon?: string;
+  menuOrder?: number;
+  pageType?: "article" | "gallery" | "custom";
+  customTemplate?: string;
+}
+
+export function getPageMetadata(page: SinglePage): PageMetadata {
+  const annotations = page.metadata?.annotations || {};
+
+  return {
+    menuIcon: annotations["menu.icon"],
+    menuOrder: annotations["menu.order"] ? parseInt(annotations["menu.order"]) : 999,
+    pageType: (annotations["page.type"] as PageMetadata["pageType"]) || "article",
+    customTemplate: annotations["page.template"],
+  };
 }
