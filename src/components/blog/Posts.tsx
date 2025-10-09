@@ -19,10 +19,12 @@ export async function Posts({
   // Fetch posts from Halo API
   const { items: allPosts } = await getPosts({ size: 100, page: 1 });
 
-  // Sort by publish time (newest first)
-  const sortedPosts = allPosts.sort((a, b) => {
-    const dateA = a.spec.publishTime ? new Date(a.spec.publishTime).getTime() : 0;
-    const dateB = b.spec.publishTime ? new Date(b.spec.publishTime).getTime() : 0;
+  // Filter out posts without spec and sort by publish time (newest first)
+  const validPosts = allPosts.filter((post) => post.spec?.slug && post.spec?.title);
+
+  const sortedPosts = validPosts.sort((a, b) => {
+    const dateA = a.spec?.publishTime ? new Date(a.spec.publishTime).getTime() : 0;
+    const dateB = b.spec?.publishTime ? new Date(b.spec.publishTime).getTime() : 0;
     return dateB - dateA;
   });
 

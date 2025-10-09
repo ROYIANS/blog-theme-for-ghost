@@ -12,6 +12,11 @@ interface PostProps {
 }
 
 export default function Post({ post, thumbnail = false, direction }: PostProps) {
+  // Guard against missing spec
+  if (!post.spec) {
+    return null;
+  }
+
   return (
     <Card
       fillWidth
@@ -54,7 +59,7 @@ export default function Post({ post, thumbnail = false, direction }: PostProps) 
           <Text variant="heading-strong-l" wrap="balance">
             {post.spec.title}
           </Text>
-          {post.categories && post.categories.length > 0 && (
+          {post.categories && post.categories.length > 0 && post.categories[0].spec && (
             <Text variant="label-strong-s" onBackground="neutral-weak">
               {post.categories[0].spec.displayName}
             </Text>
