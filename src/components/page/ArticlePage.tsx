@@ -29,7 +29,7 @@ export function ArticlePage({ page, content }: ArticlePageProps) {
         <Row gap="16" vertical="center">
           <Avatar size="s" src={person.avatar} />
           <Text variant="label-default-m" onBackground="brand-weak">
-            {page.owner?.displayName || person.name}
+            {page.status?.contributors?.join(',') || person.name}
           </Text>
         </Row>
       </Row>
