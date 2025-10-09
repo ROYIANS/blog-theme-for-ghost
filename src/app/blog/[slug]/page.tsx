@@ -24,9 +24,11 @@ import "../blog-content.css";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const { items } = await getPosts({ size: 1000 });
-  return items.map((post) => ({
-    slug: post.spec.slug,
-  }));
+  return items
+    .filter((post) => post.spec?.slug)
+    .map((post) => ({
+      slug: post.spec!.slug,
+    }));
 }
 
 export async function generateMetadata({
@@ -37,11 +39,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = await getPostBySlug(slug);
 
-  if (!post) return {};
+  if (!post || !post.spec) return {};
 
   return Meta.generate({
     title: post.spec.title,
-    description: post.spec.excerpt?.raw || post.spec.excerpt?.autoGenerate || "",
+    description: post.spec.excerpt?.raw || "",
     baseURL: baseURL,
     image: post.spec.cover || `/api/og/generate?title=${encodeURIComponent(post.spec.title)}`,
     path: `${blog.path}/${post.spec.slug}`,
@@ -56,7 +58,7 @@ export default async function BlogPost({
   const { slug } = await params;
   const post = await getPostBySlug(slug);
 
-  if (!post) {
+  if (!post || !post.spec || !post.metadata) {
     notFound();
   }
 
