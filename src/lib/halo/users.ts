@@ -1,4 +1,5 @@
 import { coreAxiosInstance } from "./client";
+import { normalizeAvatarUrl } from "@/utils/normalizeUrl";
 
 /**
  * User information from Halo
@@ -26,7 +27,7 @@ export async function getUserByName(username: string): Promise<UserInfo | null> 
     return {
       name: user.metadata.name,
       displayName: user.spec.displayName,
-      avatar: user.spec.avatar,
+      avatar: normalizeAvatarUrl(user.spec.avatar),
       bio: user.spec.bio,
       email: user.spec.email,
     };
@@ -51,7 +52,7 @@ export async function getCurrentUser(): Promise<UserInfo | null> {
     return {
       name: user.metadata.name,
       displayName: user.spec.displayName,
-      avatar: user.spec.avatar,
+      avatar: normalizeAvatarUrl(user.spec.avatar),
       bio: user.spec.bio,
       email: user.spec.email,
     };

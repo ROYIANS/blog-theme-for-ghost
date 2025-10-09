@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="018e6f48-b5ee-402f-96bf-7d409c77df23" name="更改" comment="fix: 博客">
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/USER_API.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/USER_API.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/halo/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/halo/client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/halo/users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/halo/users.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +123,7 @@
       <workItem from="1759210365981" duration="15150000" />
       <workItem from="1759971607624" duration="437000" />
       <workItem from="1759973370602" duration="7499000" />
-      <workItem from="1759981061385" duration="3317000" />
+      <workItem from="1759981061385" duration="3943000" />
     </task>
     <task id="LOCAL-00001" summary="docs: update README and add project documentation for AI Context and AI Needs">
       <option name="closed" value="true" />
@@ -239,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759988143196</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix: 博客">
+      <option name="closed" value="true" />
+      <created>1759989613284</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1759989613284</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

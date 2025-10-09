@@ -15,6 +15,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
+import { normalizeAvatarUrl } from "@/utils/normalizeUrl";
 import { getPosts, getPostBySlug, getPostContent } from "@/lib/halo/posts";
 import { Metadata } from "next";
 import { Posts } from "@/components/blog/Posts";
@@ -101,7 +102,7 @@ export default async function BlogPost({
           </Column>
           <Row marginBottom="32" horizontal="center">
             <Row gap="16" vertical="center">
-              <Avatar size="s" src={post.owner?.avatar || person.avatar} />
+              <Avatar size="s" src={normalizeAvatarUrl(post.owner?.avatar) || person.avatar} />
               <Text variant="label-default-m" onBackground="brand-weak">
                 {post.owner?.displayName || person.name}
               </Text>
