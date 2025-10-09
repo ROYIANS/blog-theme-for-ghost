@@ -1,34 +1,76 @@
-import { Column, Heading, Text, Button } from "@once-ui-system/core";
-import { siteConfig } from "@/resources/config";
+import {
+  Heading,
+  Text,
+  Button,
+  Column,
+  RevealFx,
+  Row,
+  Badge,
+  Avatar,
+} from "@once-ui-system/core";
+import { home, about, person, routes } from "@/resources";
 
 export default function HomePage() {
   return (
-    <Column fillWidth gap="l" paddingY="xl" center>
-      <Column gap="m" center>
-        <Heading as="h1" variant="display-strong-xl">
-          {siteConfig.name}
-        </Heading>
-        <Text variant="body-default-l" onBackground="neutral-weak">
-          {siteConfig.description}
-        </Text>
+    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+      <Column fillWidth horizontal="center" gap="m">
+        <Column maxWidth="s" horizontal="center" align="center">
+          {home.featured.display && (
+            <RevealFx
+              fillWidth
+              horizontal="center"
+              paddingTop="16"
+              paddingBottom="32"
+              paddingLeft="12"
+            >
+              <Badge
+                background="brand-alpha-weak"
+                paddingX="12"
+                paddingY="4"
+                onBackground="neutral-strong"
+                textVariant="label-default-s"
+                arrow={false}
+                href={home.featured.href}
+              >
+                <Row paddingY="2">{home.featured.title}</Row>
+              </Badge>
+            </RevealFx>
+          )}
+          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
+            <Heading wrap="balance" variant="display-strong-l">
+              {home.headline}
+            </Heading>
+          </RevealFx>
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
+            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+              {home.subline}
+            </Text>
+          </RevealFx>
+          <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
+            <Button
+              id="about"
+              data-border="rounded"
+              href={about.path}
+              variant="secondary"
+              size="m"
+              weight="default"
+              arrowIcon
+            >
+              <Row gap="8" vertical="center" paddingRight="4">
+                {about.avatar.display && (
+                  <Avatar
+                    marginRight="8"
+                    style={{ marginLeft: "-0.75rem" }}
+                    src={person.avatar}
+                    size="m"
+                  />
+                )}
+                {about.title}
+              </Row>
+            </Button>
+          </RevealFx>
+        </Column>
       </Column>
-
-      <Column gap="s" center>
-        <Text variant="body-default-m">
-          🚀 项目架构已搭建完成
-        </Text>
-        <Text variant="body-default-s" onBackground="neutral-weak">
-          下一步：配置 Halo API 并开始开发功能
-        </Text>
-      </Column>
-
-      <Button
-        variant="primary"
-        size="l"
-        href="/about"
-      >
-        了解更多
-      </Button>
     </Column>
   );
 }

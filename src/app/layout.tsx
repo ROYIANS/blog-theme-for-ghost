@@ -13,7 +13,7 @@ import {
   RevealFx,
   SpacingToken,
 } from "@once-ui-system/core";
-import { Footer, Header, Providers } from "@/components";
+import { Footer, Header, Providers, RouteGuard } from "@/components";
 import { effects, fonts, style, dataStyle } from "@/resources/once-ui.config";
 import { siteConfig } from "@/resources/config";
 
@@ -155,7 +155,7 @@ export default async function RootLayout({
           <Header />
           <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
             <Flex horizontal="center" fillWidth minHeight="0">
-              {children}
+              <RouteGuard>{children}</RouteGuard>
             </Flex>
           </Flex>
           <Footer />

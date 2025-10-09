@@ -1,4 +1,4 @@
-import { Text } from "@once-ui-system/core";
+import { Text, Row, Line } from "@once-ui-system/core";
 
 export const person = {
   firstName: "Blog",
@@ -37,6 +37,19 @@ export const home = {
   title: `${person.name}'s Blog`,
   description: `A modern blog powered by Halo CMS and Next.js`,
   headline: <>Welcome to my blog</>,
+  featured: {
+    display: false,
+    title: (
+      <Row gap="12" vertical="center">
+        <strong className="ml-4">Featured</strong>
+        <Line background="brand-alpha-strong" vert height="20" />
+        <Text marginRight="4" onBackground="brand-medium">
+          Latest post
+        </Text>
+      </Row>
+    ),
+    href: "/blog",
+  },
   subline: <>Sharing thoughts on technology, development, and life.</>,
 };
 
